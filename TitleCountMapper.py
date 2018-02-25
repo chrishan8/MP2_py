@@ -5,7 +5,7 @@ import string
 
 stopWordsPath = sys.argv[1]
 delimitersPath = sys.argv[2]
-delimters = ""
+delimters = ''
 stopWords = []
 
 with open(stopWordsPath) as f:
@@ -18,5 +18,6 @@ with open(delimitersPath) as f:
 for line in sys.stdin:
     words = line.split(delimiters)
     for word in words:
-        word.strip().lower()
-        print '%s\t%d' % (word, 1)
+        word = word.strip().lower()
+        if (word not in stopWords):
+            print '%s\t%d' % (word, 1)
