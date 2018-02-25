@@ -7,6 +7,7 @@ stopWordsPath = sys.argv[1]
 delimitersPath = sys.argv[2]
 pattern = ''
 stopWords = []
+linesIn = []
 
 with open(stopWordsPath) as f:
     for line in f:
@@ -17,7 +18,7 @@ with open(delimitersPath) as f:
     pattern = '|'.join(map(re.escape, list(delimiters)))
 
 for line in sys.stdin:
-    words = filter(None, re.split(pattern, line))
+    words = filter(None, map(lambda x: x.strip(), re.split(pattern, line)))
     for word in words:
         word = word.strip().lower()
         if (word not in stopWords):
