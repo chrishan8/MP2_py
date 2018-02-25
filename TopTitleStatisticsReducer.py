@@ -13,6 +13,7 @@ total = 0
 for (word, count) in wordsToCounts:
     total += count
 average = len(wordsToCounts) / total
+variance = 0
 for (word, count) in wordsToCounts:
     variance += (average - count) ** 2
 variance /= len(wordsToCounts)
