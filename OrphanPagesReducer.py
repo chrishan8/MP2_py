@@ -3,6 +3,7 @@ import sys
 
 currentPage = None
 currentTotal = 0
+orphanPages = []
 
 for line in sys.stdin:
     line = line.strip()
@@ -12,13 +13,16 @@ for line in sys.stdin:
     except ValueError:
         pass
 
-if currentPage == page:
-    currentTotal += count
-else:
-    if currentPage and currentTotal == 0:
-        print '%s' % (currentPage)
-    currentTotal = count
-    currentPage = page
+    if currentPage == page:
+        currentTotal += count
+    else:
+        if currentPage and currentTotal == 0:
+            orphanPages.append(currentPage)
+        currentTotal = count
+        currentPage = page
 
 if currentPage and currentTotal == 0:
-	print '%s' % (currentPage)
+	orphanPages.append(currentPage)
+
+for page in sorted(orphanPages, key=lambda x: int(x)):
+    print page
