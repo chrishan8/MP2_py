@@ -12,14 +12,15 @@ for line in sys.stdin:
 total = 0
 for (word, count) in wordsToCounts:
     total += count
-average = len(wordsToCounts) / total
+average = int(math.floor(len(wordsToCounts) / total))
 variance = 0
 for (word, count) in wordsToCounts:
     variance += (average - count) ** 2
 variance /= len(wordsToCounts)
+variance = int(math.floor(variance))
 
 print 'Mean\t%d' % average
 print 'Sum\t%d' % total
-print 'Min\t%d' % min(wordsToCounts, key=lambda x: x[1])
-print 'Max\t%d' % max(wordsToCounts, key=lambda x: x[1])
+print 'Min\t%s' % min(wordsToCounts, key=lambda x: x[1])
+print 'Max\t%s' % max(wordsToCounts, key=lambda x: x[1])
 print 'Var\t%d' % variance
