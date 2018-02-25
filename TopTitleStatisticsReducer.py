@@ -24,6 +24,6 @@ maximum = max(wordsToCounts, key=lambda x: x[1])
 
 print 'Mean\t%d' % average
 print 'Sum\t%d' % total
-# print 'Min\t%s' % minimum
-# print 'Max\t%s' % maximum
+print 'Min\t%d' % minimum[1]
+print 'Max\t%d' % maximum[1]
 print 'Var\t%d' % variance
