@@ -15,9 +15,9 @@ for line in sys.stdin:
 
 pagesToCounts = sorted(pagesToCounts, key=lambda x: x[1])
 pagesToRank = []
-for i in len(pagesToCounts):
-    page, count = pagesToCounts[i]
+for i, item in enumerate(pagesToCounts):
+    page, count = item
     pagesToRank.append((page, i))
 
-for (page, rank) in sorted(pagesToRank, key=lambda x: x[0])
+for (page, rank) in sorted(pagesToRank, key=lambda x: x[0], reverse=True):
     print '%s\t%d' % (page, rank)
