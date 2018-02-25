@@ -13,7 +13,7 @@ for line in sys.stdin:
 total = 0
 for (word, count) in wordsToCounts:
     total += count
-average = int(math.floor(len(wordsToCounts) / total))
+average = int(math.floor(total / len(wordsToCounts)))
 variance = 0
 for (word, count) in wordsToCounts:
     variance += (average - count) ** 2
