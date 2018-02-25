@@ -16,8 +16,8 @@ with open(delimitersPath) as f:
     delimiters = f.read()
 
 for line in sys.stdin:
-    # pattern = '|'.join(map(re.escape, list(delimiters)))
-    words = re.split(delimiters, line)
+    pattern = '|'.join(list(delimiters))
+    words = re.split(pattern, line)
     for word in words:
         word = word.strip().lower()
         if (word not in stopWords):
