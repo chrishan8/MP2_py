@@ -21,4 +21,4 @@ for line in sys.stdin:
     for word in words:
         word = word.strip().lower()
         if (word not in stopWords):
-            print '%s\t%s' % (word, '1')
+            print '%s\t%d' % (word, 1)
