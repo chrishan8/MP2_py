@@ -21,4 +21,4 @@ else:
     currentPage = page
 
 if currentPage and currentTotal == 0:
-print '%s' % (currentPage)
+	print '%s' % (currentPage)
