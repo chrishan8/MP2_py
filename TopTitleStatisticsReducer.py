@@ -19,9 +19,11 @@ for (word, count) in wordsToCounts:
     variance += (average - count) ** 2
 variance /= len(wordsToCounts)
 variance = int(math.floor(variance))
+minimum = min(wordsToCounts, key=lambda x: x[1])
+maximum = max(wordsToCounts, key=lambda x: x[1])
 
 print 'Mean\t%d' % average
 print 'Sum\t%d' % total
-print 'Min\t%s' % min(wordsToCounts, key=lambda x: x[1])
-print 'Max\t%s' % max(wordsToCounts, key=lambda x: x[1])
+print 'Min\t%d' % minimum
+print 'Max\t%d' % maximum
 print 'Var\t%d' % variance
