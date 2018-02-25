@@ -19,4 +19,4 @@ for line in sys.stdin:
     words = line.split(delimiters)
     for word in words:
         word.strip().lower()
-        print '%s\t%s' % (word, 1)
+        print '%s\t%d' % (word, 1)
