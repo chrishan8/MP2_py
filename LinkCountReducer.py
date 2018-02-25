@@ -1,10 +1,22 @@
 #!/usr/bin/env python
 import sys
 
-#TODO
+currentPage = None
+currentTotal = 0
 
 # input comes from STDIN
 for line in sys.stdin:
-    # TODO
+    line = line.strip()
+    page, count = line.split('\t', 1)
+    count = int(count)
 
-# TODO
+    if currentPage == page:
+        currentTotal += count
+    else:
+        if currentPage:
+            print '%s\t%s' % (currentPage, currentTotal)
+        currentTotal = count
+        currentPage = page
+
+if currentPage == page:
+    print '%s\t%s' % (currentPage, currentTotal)

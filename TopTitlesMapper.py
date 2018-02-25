@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 import sys
 
-countsToWords = []
+wordsToCounts = []
 
 for line in sys.stdin:
     line = line.strip()
     word, count = line.split('\t', 1)
     count = int(count)
-    countsToWords.append((word, count))
+    wordsToCounts.append((word, count))
 
-countsToWords = sorted(countsToWords, key=lambda x: (x[1], x[0]))
+wordsToCounts = sorted(wordsToCounts, key=lambda x: (x[1], x[0]))
 for x in range(5):
-    word, count = countsToWords.pop()
+    word, count = wordsToCounts.pop()
     print '%s\t%s' % (word, count)
