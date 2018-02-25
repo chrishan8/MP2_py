@@ -5,7 +5,7 @@ import string
 
 stopWordsPath = sys.argv[1]
 delimitersPath = sys.argv[2]
-delimters = ''
+pattern = ''
 stopWords = []
 
 with open(stopWordsPath) as f:
@@ -13,11 +13,11 @@ with open(stopWordsPath) as f:
         stopWords.append(line)
 
 with open(delimitersPath) as f:
-    delimiters = f.read()
+    delimiters = f.read().strip()
+    pattern = '|'.join(map(re.escape, list(delimiters)))
 
-for line in sys.stdin:
-    pattern = '|'.join(list(delimiters))
-    words = re.split(pattern, line)
+for line in userInput:
+    words = filter(None, re.split(pattern, line))
     for word in words:
         word = word.strip().lower()
         if (word not in stopWords):
