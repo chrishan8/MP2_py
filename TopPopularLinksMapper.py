@@ -10,6 +10,6 @@ for line in sys.stdin:
     pagesToCounts.append((page, count))
 
 pagesToCounts = sorted(pagesToCounts, key=lambda x: (x[1], x[0]))
-for x in range(5):
+for x in range(10):
     page, count = pagesToCounts.pop()
     print '%s\t%d' % (page, count)

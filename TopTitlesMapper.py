@@ -10,6 +10,6 @@ for line in sys.stdin:
     wordsToCounts.append((word, count))
 
 wordsToCounts = sorted(wordsToCounts, key=lambda x: (x[1], x[0]))
-for x in range(5):
+for x in range(10):
     word, count = wordsToCounts.pop()
     print '%s\t%s' % (word, count)
