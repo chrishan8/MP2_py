@@ -11,7 +11,7 @@ linesIn = []
 
 with open(stopWordsPath) as f:
     for line in f:
-        stopWords.append(line)
+        stopWords.append(line.strip())
 
 with open(delimitersPath) as f:
     delimiters = f.read().strip()
