@@ -6,7 +6,8 @@ leaguePages = []
 
 with open(leaguePath) as f:
 	for line in f:
-        leaguePages.append(line.strip())
+        line = line.strip()
+        leaguePages.append(line)
 
 for line in sys.stdin:
     line = line.strip()
