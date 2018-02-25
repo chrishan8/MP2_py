@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 import sys
+import collections
 
-
-# TODO
-
-
+countsToWords = []
 
 for line in sys.stdin:
+    line = line.strip()
+    word, count = line.split('\t', 1)
+    count = int(count)
+    countsToWords.append((word, count))
 
-       #TODO
-
-
-#TODO
+countsToWords = sorted(countsToWords, key=lambda x: x[1])
+for x in range(10):
+    item = countsToWords.pop()
+    print '%s\t%s' % (item[0], item[1])

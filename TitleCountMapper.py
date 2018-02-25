@@ -3,26 +3,20 @@
 import sys
 import string
 
-
-
 stopWordsPath = sys.argv[1]
 delimitersPath = sys.argv[2]
+delimters = ""
+stopWords = []
 
-
-# TODO
 with open(stopWordsPath) as f:
-    # TODO
+    for line in f:
+        stopWords.append(line)
 
-
-
-
-
-
-#TODO 
 with open(delimitersPath) as f:
-    # TODO
+    delimiters = f.read()
 
 for line in sys.stdin:
-  
-    # TODO
-
+    words = line.split(delimiters)
+    for word in words:
+        word.strip().lower()
+        print '%s\t%s' % (word, 1)

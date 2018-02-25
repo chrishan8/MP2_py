@@ -2,10 +2,22 @@
 from operator import itemgetter
 import sys
 
-#TODO
+currentWord = None
+currentTotal = 0
 
 # input comes from STDIN
 for line in sys.stdin:
-    # TODO
+    line = line.strip()
+    word, count = line.split('\t', 1)
+    count = int(count)
 
-# TODO
+    if currentWord == word:
+        currentTotal += count
+    else:
+        if currentWord:
+            print '%s\t%s' % (currentWord, currentTotal)
+        currentTotal = count
+        currentWord = word
+
+if currentWord == word:
+    print '%s\t%s' % (currentWord, currentTotal)
